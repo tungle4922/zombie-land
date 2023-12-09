@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 // test
+// test 2
 public class Bullet : MonoBehaviour
 {
     public int minDamage = 6;
