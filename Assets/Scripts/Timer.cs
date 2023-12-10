@@ -36,7 +36,7 @@ public class Timer : MonoBehaviour
             {
                 showTimer = timer;
             }
-            
+
             second = showTimer % 60;
             minute = (showTimer / 60) % 60;
             textTimer.text = minute.ToString() + ":" + second.ToString();
