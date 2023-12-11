@@ -111,19 +111,29 @@ public class EnemyAI : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             CancelInvoke("DamagePlayer");
-            PlayerHealth = null;
+            if (PlayerHealth != null)
+            {
+                PlayerHealth = null;
+            }
         }
+
         if (collision.CompareTag("FireRange"))
         {
-            FindObjectOfType<WeaponManager>().RemoveEnemyToFireRange(this.transform);
+            WeaponManager weaponManager = FindObjectOfType<WeaponManager>();
+            if (weaponManager != null)
+            {
+                weaponManager.RemoveEnemyToFireRange(this.transform);
+            }
         }
     }
 
     void DamagePlayer()
     {
-        int damage = Random.Range(minDamage, maxDamage);
-        PlayerHealth.TakeDam(damage);
-        //
-        PlayerHealth.GetComponent<Player>().TakeDamageEffect(damage);
+        if (PlayerHealth != null)
+        {
+            int damage = Random.Range(minDamage, maxDamage);
+            PlayerHealth.TakeDam(damage);
+            PlayerHealth.GetComponent<Player>().TakeDamageEffect(damage);
+        }
     }
 }

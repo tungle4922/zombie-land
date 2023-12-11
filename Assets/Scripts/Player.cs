@@ -64,9 +64,9 @@ public class Player : MonoBehaviour
         // Rotate Face
         if (moveInput.x != 0)
             if (moveInput.x < 0)
-                characterSR.transform.localScale = new Vector3(-1, 1, 0);
+                characterSR.transform.localScale = new Vector3(-3, 3, 0);
             else
-                characterSR.transform.localScale = new Vector3(1, 1, 0);
+                characterSR.transform.localScale = new Vector3(3, 3, 0);
     }
 
     public void TakeDamageEffect(int damage)
